@@ -1,3 +1,4 @@
 .signUpImg {
-    background: url('assets/background images/question mark.jpg');
+    background: url('../assets/background images/question mark.jpg');
+    background-size: cover;
 }
