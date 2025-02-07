@@ -10,6 +10,18 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
+navigator.serviceWorker.register('sw.js').then(function (registration) {
+    registration.addEventListener('updatefound', function () {
+        var newWorker = registration.installing;
+        if (newWorker) {
+            newWorker.addEventListener('statechange', function () {
+                if (newWorker.state === 'activated') {
+                    window.location.reload(); // Force reload to apply updates
+                }
+            });
+        }
+    });
+});
 window.addEventListener('load', function () {
     var loader = document.getElementById('loader');
     var content = document.getElementById('content');
