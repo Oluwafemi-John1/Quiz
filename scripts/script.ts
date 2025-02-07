@@ -47,3 +47,11 @@ window.onload = function () {
         window.location.reload();
     }
 };
+
+
+const btn = document.getElementById('bSubmit');
+if (btn) {
+    btn.addEventListener('click', () => {
+        // Add your click event logic here
+    });
+}
