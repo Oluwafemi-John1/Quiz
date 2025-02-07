@@ -1,6 +1,10 @@
 {
-    "short_name": "MyQuiz",
+    "short_name": "Quiz",
     "name": "Quiz",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
     "icons": [
         {
             "src": "assets/Favicon/favicon_io/favicon-16x16.png",
@@ -22,9 +26,5 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
-    "start_url": "index.html",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff"
+    ]
 }

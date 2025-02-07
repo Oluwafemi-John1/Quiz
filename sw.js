@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-pwa-cache-v1';
+const CACHE_NAME = 'v3';
 const urlsToCache = [
     '/',
     'index.html',
@@ -14,6 +14,21 @@ self.addEventListener('install', (event) => {
             .then((cache) => {
                 return cache.addAll(urlsToCache);
             })
+    );
+});
+
+self.addEventListener('activate', (event) => {
+    self.skipWaiting();
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cache) => {
+                    if (cache !== CACHE_NAME) {
+                        return caches.delete(cache); // Delete old caches
+                    }
+                })
+            );
+        })
     );
 });
 

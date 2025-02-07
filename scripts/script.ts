@@ -8,8 +8,24 @@ if ('serviceWorker' in navigator) {
             .catch((err) => {
                 console.log('ServiceWorker registration failed: ', err);
             });
+
+        navigator.serviceWorker.register('sw.js').then((registration: ServiceWorkerRegistration) => {
+            registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                if(newWorker) {
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'activated') {
+                            window.location.reload(); // Force reload to apply updates
+                        }
+                    });
+                }
+            });
+        });
     });
+
 }
+
+
 
 
 window.addEventListener('load', () => {
