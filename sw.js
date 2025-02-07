@@ -8,15 +8,6 @@ const urlsToCache = [
     '/assets/Favicon/favicon_io/android-chrome-512x512.png'
 ];
 
-self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                return cache.addAll(urlsToCache);
-            })
-    );
-});
-
 self.addEventListener('activate', (event) => {
     self.skipWaiting();
     event.waitUntil(
@@ -31,6 +22,16 @@ self.addEventListener('activate', (event) => {
         })
     );
 });
+
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then((cache) => {
+                return cache.addAll(urlsToCache);
+            })
+    );
+});
+
 
 self.addEventListener('fetch', (event) => {
     event.respondWith(
