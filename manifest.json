@@ -1,6 +1,6 @@
 {
-    "short_name": "MyPWA",
-    "name": "My Progressive Web App",
+    "short_name": "MyQuiz",
+    "name": "Quiz",
     "icons": [
         {
             "src": "assets/Favicon/favicon_io/favicon-16x16.png",
