@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     const content = document.getElementById('content');
 
-    // Show the loader for 2 seconds
     setTimeout(() => {
         loader?loader.style.opacity = '0':console.log('no loader found');
         setTimeout(() => {
