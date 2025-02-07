@@ -49,9 +49,16 @@ window.onload = function () {
 };
 
 
-const btn = document.getElementById('bSubmit');
+const btn: HTMLElement | null = document.getElementById('bSubmit');
 if (btn) {
     btn.addEventListener('click', () => {
-        // Add your click event logic here
+        const fullname = document.getElementById('fName') as HTMLInputElement | null
+        const username = document.getElementById('uName') as HTMLInputElement | null
+        const mail = document.getElementById('eMail') as HTMLInputElement | null
+        const password = document.getElementById('pWord') as HTMLInputElement | null
+
+        if(fullname.value === "" || username.value === "" || mail.value === "" || password.value === "") {
+            console.log('empty');
+        }
     });
 }
