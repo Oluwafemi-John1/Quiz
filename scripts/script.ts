@@ -1,3 +1,5 @@
+import Toastify from 'toastify-js'
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
@@ -55,6 +57,23 @@ interface User {
     password: String | null
 }
 
+const toaster = () => {
+    Toastify({
+        text: "This is a toast",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+}
+
 const btn: HTMLElement | null = document.getElementById('bSubmit');
 if (btn) {
     btn.addEventListener('click', () => {
@@ -68,7 +87,7 @@ if (btn) {
         } else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
             console.error('All input must be filled')
         } else {
-            let userObj:User = {
+            let userObj: User = {
                 fullname: fullname.value || null,
                 username: username.value || null,
                 mail: mail.value || null,
