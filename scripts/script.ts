@@ -1,10 +1,9 @@
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
-            .then((registration:ServiceWorkerRegistration) => {
+            .then((registration: ServiceWorkerRegistration) => {
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                console.log(registration);
-                
+                // console.log(registration);
             })
             .catch((err) => {
                 console.log('ServiceWorker registration failed: ', err);
@@ -12,9 +11,17 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-const showLoader = () => {
+
+window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
-    if (loader) {
-        loader.style.display = 'block';
-    }
-}
+    const content = document.getElementById('content');
+
+    // Show the loader for 2 seconds
+    setTimeout(() => {
+        loader?loader.style.opacity = '0':console.log('no loader found');
+        setTimeout(() => {
+            loader?loader.style.display = 'none':console.log('no loader found');
+            content?content.style.display = 'block':console.log('content not found');
+        }, 500);
+    }, 2000);
+});
