@@ -1,9 +1,9 @@
-const CACHE_NAME = 'quiz-app';
+const CACHE_NAME = 'my-pwa-cache-v1';
 const urlsToCache = [
     '/',
-    '/index.html',
-    '/styles/main.css',
-    '/scripts/main.js',
+    'index.html',
+    'styles/index.css',
+    'scripts/main.js',
     '/icons/icon-192x192.png',
     '/icons/icon-512x512.png'
 ];
