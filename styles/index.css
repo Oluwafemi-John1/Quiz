@@ -17,6 +17,9 @@ body {
     .signUpText>div:nth-child(1) {
         margin-bottom: 80px !important;
     }
+    .signUpText {
+        height: 100vh;
+    }
 }
 
 .signUpImg {
