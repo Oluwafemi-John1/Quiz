@@ -1,3 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+import toastify_js_1 from "/scripts/toastify-js.d.ts";
+
+// import "toastify-js/src/toastify.css";
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         navigator.serviceWorker.register('sw.js')
@@ -39,18 +44,20 @@ window.onload = function () {
         window.location.reload();
     }
 };
-var toaster = function () {
-    Toastify({
-        text: "This is a toast",
-        duration: 3000,
-        destination: "https://github.com/apvarun/toastify-js",
+var toaster = function (message, pos, grav, duration, background, colour) {
+    if (background === void 0) { background = 'black'; }
+    if (colour === void 0) { colour = 'white'; }
+    (0, toastify_js_1)({
+        text: message,
+        duration: duration,
         newWindow: true,
         close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "left", // `left`, `center` or `right`
+        gravity: grav, // `top` or `bottom`
+        position: pos, // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-            background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background: background,
+            colour: colour
         },
         onClick: function () { } // Callback after click
     }).showToast();
@@ -67,6 +74,7 @@ if (btn) {
         }
         else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
             console.error('All input must be filled');
+            toaster('All input must be filled', 'right', 'top', 3000, 'rgb(243, 237, 233)', 'red');
         }
         else {
             var userObj = {

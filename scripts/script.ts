@@ -1,4 +1,6 @@
-import Toastify from 'toastify-js'
+import Toastify from 'toastify-js';
+// import "toastify-js/src/toastify.css";
+
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -57,18 +59,18 @@ interface User {
     password: String | null
 }
 
-const toaster = () => {
+const toaster = (message: string, pos: "left" | "center" | "right" | undefined, grav: "top" | "bottom" | undefined, duration:number, background:string='black', colour:string='white') => {
     Toastify({
-        text: "This is a toast",
-        duration: 3000,
-        destination: "https://github.com/apvarun/toastify-js",
+        text: message,
+        duration,
         newWindow: true,
         close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "left", // `left`, `center` or `right`
+        gravity: grav, // `top` or `bottom`
+        position: pos, // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-            background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background,
+            colour
         },
         onClick: function () { } // Callback after click
     }).showToast();
@@ -86,6 +88,7 @@ if (btn) {
             console.error('One or more elements are missing!')
         } else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
             console.error('All input must be filled')
+            toaster('All input must be filled','right','top',3000,'rgb(243, 237, 233)','red')
         } else {
             let userObj: User = {
                 fullname: fullname.value || null,
