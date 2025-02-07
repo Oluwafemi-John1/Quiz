@@ -6,6 +6,10 @@ body {
     .container-fluid {
         height: 100vh !important;
     }
+
+    .signUpText > div:nth-child(1) {
+        margin-bottom: 100px !important;
+    }
 }
 .signUpImg {
     background: url('../assets/background images/question mark.jpg');
