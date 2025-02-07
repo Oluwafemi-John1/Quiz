@@ -39,3 +39,27 @@ window.onload = function () {
         window.location.reload();
     }
 };
+var btn = document.getElementById('bSubmit');
+if (btn) {
+    btn.addEventListener('click', function () {
+        var fullname = document.getElementById('fName');
+        var username = document.getElementById('uName');
+        var mail = document.getElementById('eMail');
+        var password = document.getElementById('pWord');
+        if (!fullname || !username || !mail || !password) {
+            console.error('One or more elements are missing!');
+        }
+        else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
+            console.error('All input must be filled');
+        }
+        else {
+            var userObj = {
+                fullname: fullname.value || null,
+                username: username.value || null,
+                mail: mail.value || null,
+                password: password.value || null
+            };
+            console.log(userObj);
+        }
+    });
+}

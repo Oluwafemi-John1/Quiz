@@ -48,6 +48,12 @@ window.onload = function () {
     }
 };
 
+interface User {
+    fullname: String | null,
+    username: String | null,
+    mail: String | null,
+    password: String | null
+}
 
 const btn: HTMLElement | null = document.getElementById('bSubmit');
 if (btn) {
@@ -57,8 +63,18 @@ if (btn) {
         const mail = document.getElementById('eMail') as HTMLInputElement | null
         const password = document.getElementById('pWord') as HTMLInputElement | null
 
-        if(fullname.value === "" || username.value === "" || mail.value === "" || password.value === "") {
-            console.log('empty');
+        if (!fullname || !username || !mail || !password) {
+            console.error('One or more elements are missing!')
+        } else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
+            console.error('All input must be filled')
+        } else {
+            let userObj:User = {
+                fullname: fullname.value || null,
+                username: username.value || null,
+                mail: mail.value || null,
+                password: password.value || null
+            }
+            console.log(userObj);
         }
     });
 }
