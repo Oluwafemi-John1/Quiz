@@ -2,6 +2,11 @@ body {
     font-family: "Playwrite DE Grund", serif;
 }
 
+@media screen and (min-width: 768px) {
+    .container-fluid {
+        height: 100vh !important;
+    }
+}
 .signUpImg {
     background: url('../assets/background images/question mark.jpg');
     background-size: cover;
