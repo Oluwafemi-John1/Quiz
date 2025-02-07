@@ -17,10 +17,17 @@ window.addEventListener('load', () => {
     const content = document.getElementById('content');
 
     setTimeout(() => {
-        loader?loader.style.opacity = '0':console.log('no loader found');
+        loader ? loader.style.opacity = '0' : console.log('no loader found');
         setTimeout(() => {
-            loader?loader.style.display = 'none':console.log('no loader found');
-            content?content.style.display = 'block':console.log('content not found');
+            loader ? loader.style.display = 'none' : console.log('no loader found');
+            content ? content.style.display = 'block' : console.log('content not found');
         }, 500);
     }, 2000);
 });
+
+window.onload = function () {
+    if (!sessionStorage.getItem('reload')) {
+        sessionStorage.setItem('reload', 'true');
+        window.location.reload();
+    }
+};
