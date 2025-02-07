@@ -1,18 +1,3 @@
-// interface Reg {
-//     active: null,
-//     backgroundFetch: Object,
-//     cookies: Object,
-//     installing: null,
-//     navigationPreload: Object,
-//     onupdatefound: null,
-//     paymentManager: Object,
-//     periodicSync: Object,
-//     pushManager: Object,
-//     scope: String,
-//     sync: Object,
-//     updateViaCache: String,
-//     waiting: null
-// }
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         navigator.serviceWorker.register('sw.js')
@@ -25,3 +10,9 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
+var showLoader = function () {
+    var loader = document.getElementById('loader');
+    if (loader) {
+        loader.style.display = 'block';
+    }
+};

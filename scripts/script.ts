@@ -1,19 +1,3 @@
-// interface Reg {
-//     active: null,
-//     backgroundFetch: Object,
-//     cookies: Object,
-//     installing: null,
-//     navigationPreload: Object,
-//     onupdatefound: null,
-//     paymentManager: Object,
-//     periodicSync: Object,
-//     pushManager: Object,
-//     scope: String,
-//     sync: Object,
-//     updateViaCache: String,
-//     waiting: null
-// }
-
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
@@ -26,4 +10,11 @@ if ('serviceWorker' in navigator) {
                 console.log('ServiceWorker registration failed: ', err);
             });
     });
+}
+
+const showLoader = () => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.style.display = 'block';
+    }
 }
