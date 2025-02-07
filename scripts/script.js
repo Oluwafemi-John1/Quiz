@@ -13,7 +13,6 @@ if ('serviceWorker' in navigator) {
 window.addEventListener('load', function () {
     var loader = document.getElementById('loader');
     var content = document.getElementById('content');
-    // Show the loader for 2 seconds
     setTimeout(function () {
         loader ? loader.style.opacity = '0' : console.log('no loader found');
         setTimeout(function () {
@@ -22,3 +21,9 @@ window.addEventListener('load', function () {
         }, 500);
     }, 2000);
 });
+window.onload = function () {
+    if (!sessionStorage.getItem('reload')) {
+        sessionStorage.setItem('reload', 'true');
+        window.location.reload();
+    }
+};
