@@ -39,9 +39,7 @@ window.onload = function () {
         window.location.reload();
     }
 };
-var toaster = function (message, pos, grav, duration, background, colour) {
-    if (background === void 0) { background = 'black'; }
-    if (colour === void 0) { colour = 'white'; }
+var toaster = function (message, pos, grav, duration, background, color) {
     Toastify({
         text: message,
         duration: duration,
@@ -52,7 +50,7 @@ var toaster = function (message, pos, grav, duration, background, colour) {
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
             background: background,
-            colour: colour
+            color: color
         },
         onClick: function () { } // Callback after click
     }).showToast();
@@ -69,7 +67,7 @@ if (btn) {
         }
         else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
             console.error('All input must be filled');
-            toaster('All input must be filled', 'right', 'top', 3000, 'rgb(243, 237, 233)', 'red');
+            toaster('All input must be filled', 'right', 'top', 3000, '#000', '#f00');
         }
         else {
             var userObj = {

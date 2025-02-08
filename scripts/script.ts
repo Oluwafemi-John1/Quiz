@@ -55,7 +55,7 @@ interface User {
     password: String | null
 }
 
-const toaster = (message: string, pos: "left" | "center" | "right" | undefined, grav: "top" | "bottom" | undefined, duration:number, background:string='black', colour:string='white') => {
+const toaster = (message: string, pos: "left" | "center" | "right" | undefined, grav: "top" | "bottom" | undefined, duration:number, background:string, color:string) => {
     Toastify({
         text: message,
         duration,
@@ -66,7 +66,7 @@ const toaster = (message: string, pos: "left" | "center" | "right" | undefined, 
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
             background,
-            colour
+            color
         },
         onClick: function () { } // Callback after click
     }).showToast();
@@ -84,7 +84,7 @@ if (btn) {
             console.error('One or more elements are missing!')
         } else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
             console.error('All input must be filled')
-            toaster('All input must be filled','right','top',3000,'rgb(243, 237, 233)','red')
+            toaster('All input must be filled','right','top',3000,'#000','#f00')
         } else {
             let userObj: User = {
                 fullname: fullname.value || null,
