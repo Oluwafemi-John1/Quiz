@@ -1,7 +1,3 @@
-import Toastify from 'toastify-js';
-// import "toastify-js/src/toastify.css";
-
-
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')

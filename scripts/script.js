@@ -1,8 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-import toastify_js_1 from "/scripts/toastify-js.d.ts";
-
-// import "toastify-js/src/toastify.css";
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         navigator.serviceWorker.register('sw.js')
@@ -47,7 +42,7 @@ window.onload = function () {
 var toaster = function (message, pos, grav, duration, background, colour) {
     if (background === void 0) { background = 'black'; }
     if (colour === void 0) { colour = 'white'; }
-    (0, toastify_js_1)({
+    Toastify({
         text: message,
         duration: duration,
         newWindow: true,
