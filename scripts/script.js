@@ -67,7 +67,7 @@ if (btn) {
         }
         else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
             console.error('All input must be filled');
-            toaster('Fill all inputs', 'center', 'top', 3000, '#000', '#f00');
+            toaster('Fill all inputs', 'center', 'top', 3000, '#14110d', '#f00');
         }
         else {
             var userObj = {
