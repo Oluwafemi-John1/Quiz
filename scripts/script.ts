@@ -12,6 +12,15 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        // Notify the user to refresh the page
+        if (confirm('A new version is available! Refresh to update?')) {
+            window.location.reload();
+        }
+    });
+}
+
 navigator.serviceWorker.register('sw.js').then((registration: ServiceWorkerRegistration) => {
     registration.addEventListener('updatefound', () => {
         const newWorker = registration.installing;
@@ -55,7 +64,7 @@ interface User {
     password: String | null
 }
 
-const toaster = (message: string, pos: "left" | "center" | "right" | undefined, grav: "top" | "bottom" | undefined, duration:number, background:string, color:string) => {
+const toaster = (message: string, pos: "left" | "center" | "right" | undefined, grav: "top" | "bottom" | undefined, duration: number, background: string, color: string) => {
     Toastify({
         text: message,
         duration,
@@ -84,7 +93,7 @@ if (btn) {
             console.error('One or more elements are missing!')
         } else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
             console.error('All input must be filled')
-            toaster('Fill all inputs','center','top',3000,'#000','#f00')
+            toaster('Fill all inputs', 'center', 'top', 3000, '#000', '#f00')
         } else {
             let userObj: User = {
                 fullname: fullname.value || null,

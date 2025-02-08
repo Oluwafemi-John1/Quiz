@@ -104,11 +104,12 @@ body {
 .inputBox {
     position: relative;
     /* width: 250px; */
+
 }
 
 .inputBox input {
     width: 100%;
-    padding: 10px;
+    padding: 20px !important;
     outline: none;
     border: none;
     color: #000;

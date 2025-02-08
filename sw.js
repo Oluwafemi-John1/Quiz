@@ -1,4 +1,4 @@
-const CACHE_NAME = 'v3';
+const CACHE_NAME = 'v4';
 const urlsToCache = [
     '/',
     'index.html',
@@ -9,7 +9,6 @@ const urlsToCache = [
 ];
 
 self.addEventListener('activate', (event) => {
-    self.skipWaiting();
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
@@ -21,6 +20,7 @@ self.addEventListener('activate', (event) => {
             );
         })
     );
+    self.clients.claim();
 });
 
 self.addEventListener('install', (event) => {
@@ -30,6 +30,7 @@ self.addEventListener('install', (event) => {
                 return cache.addAll(urlsToCache);
             })
     );
+    self.skipWaiting();
 });
 
 
