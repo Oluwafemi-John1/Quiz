@@ -1,6 +1,5 @@
 body {
     font-family: "Playwrite DE Grund", serif;
-    overflow-y: hidden;
 }
 
 @media screen and (min-width: 768px) {
@@ -16,6 +15,10 @@ body {
         height: 100%;
         overflow-y: auto;
         /* border: 2px solid red; */
+    }
+
+    body {
+        overflow-y: hidden;
     }
 }
 
