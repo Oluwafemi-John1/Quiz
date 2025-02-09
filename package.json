@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@types/toastify-js": "^1.12.3",
+    "firebase": "^11.3.0",
     "toastify-js": "^1.12.0"
   }
 }

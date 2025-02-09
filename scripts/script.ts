@@ -81,6 +81,23 @@ const toaster = (message: string, pos: "left" | "center" | "right" | undefined, 
     }).showToast();
 }
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDXTXs9Rp4t9ou4v8goaetpqAOz-bAKnjs",
+  authDomain: "quiz-641a4.firebaseapp.com",
+  projectId: "quiz-641a4",
+  storageBucket: "quiz-641a4.firebasestorage.app",
+  messagingSenderId: "1098720718808",
+  appId: "1:1098720718808:web:ac0e87e03706c354a4ccad"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 const btn: HTMLElement | null = document.getElementById('bSubmit');
 if (btn) {
     btn.addEventListener('click', () => {
@@ -95,6 +112,9 @@ if (btn) {
             console.error('All input must be filled')
             toaster('Fill all inputs', 'center', 'top', 3000, '#000', '#f00')
         } else {
+            const fullnameRegex = /^([A-Z]{1})([a-z]{1,})$/
+            const usernameRegex = /^([a-z]{2,})$/
+
             let userObj: User = {
                 fullname: fullname.value || null,
                 username: username.value || null,
