@@ -101,17 +101,23 @@ if (btn) {
             const fullnameRegex = /^([A-Z]{1})([a-z]{1,})$/
             const usernameRegex = /^([a-z]{2,})$/
 
-            if(fullnameRegex.test(fullname.value) === false) {
-                console.info('Full name should not be less than 2 characters')
-            }
+            const testRegex1 = fullnameRegex.test(fullname.value)
+            const testRegex2 = usernameRegex.test(username.value)
+            console.log(testRegex1, testRegex2);
+            
 
-            let userObj: User = {
-                fullname: fullname.value || null,
-                username: username.value || null,
-                mail: mail.value || null,
-                password: password.value || null
-            }
-            console.log(userObj);
+            const check1 = !testRegex1?console.info('Full name should begin with an uppercase letter and not less than 2 characters'):console.info('Passed!')
+            const check2 = !testRegex2?console.info('Username should not be less than 2 characters'):console.log('Passed 2!')
+            console.log(check1, check2);
+            
+
+            // let userObj: User = {
+            //     fullname: fullname.value || null,
+            //     username: username.value || null,
+            //     mail: mail.value || null,
+            //     password: password.value || null
+            // }
+            // console.log(userObj);
         }
     });
 }
