@@ -1,3 +1,4 @@
+// import { app } from "./firebase";
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         navigator.serviceWorker.register('sw.js')
@@ -8,6 +9,14 @@ if ('serviceWorker' in navigator) {
             .catch(function (err) {
             console.log('ServiceWorker registration failed: ', err);
         });
+    });
+}
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+        // Notify the user to refresh the page
+        if (confirm('A new version is available! Refresh to update?')) {
+            window.location.reload();
+        }
     });
 }
 navigator.serviceWorker.register('sw.js').then(function (registration) {
@@ -67,9 +76,11 @@ if (btn) {
         }
         else if (fullname.value === '' || username.value === '' || mail.value === '' || password.value === '') {
             console.error('All input must be filled');
-            toaster('Fill all inputs', 'center', 'top', 3000, '#14110d', '#f00');
+            toaster('Fill all inputs', 'center', 'top', 3000, '#000', '#f00');
         }
         else {
+            var fullnameRegex = /^([A-Z]{1})([a-z]{1,})$/;
+            var usernameRegex = /^([a-z]{2,})$/;
             var userObj = {
                 fullname: fullname.value || null,
                 username: username.value || null,
