@@ -106,8 +106,7 @@ if (btn) {
             console.log(testRegex1, testRegex2);
             
 
-            !testRegex1?console.info('Full name should begin with an uppercase letter and not less than 2 characters'):console.info('Passed!')
-            !testRegex1?console.info('Full name should begin with an uppercase letter and not less than 2 characters'):console.info('Passed!')
+            !testRegex1?toaster('Full name should begin with an uppercase letter and not less than 2 characters','right','top',2000,'red','white'):console.info('Passed!')
             // const check2 = !testRegex2?console.info('Username should not be less than 2 characters'):console.log('Passed 2!')
             
 

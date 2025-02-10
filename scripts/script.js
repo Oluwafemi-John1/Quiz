@@ -84,9 +84,8 @@ if (btn) {
             var testRegex1 = fullnameRegex.test(fullname.value);
             var testRegex2 = usernameRegex.test(username.value);
             console.log(testRegex1, testRegex2);
-            var check1 = !testRegex1 ? console.info('Full name should begin with an uppercase letter and not less than 2 characters') : console.info('Passed!');
-            var check2 = !testRegex2 ? console.info('Username should not be less than 2 characters') : console.log('Passed 2!');
-            console.log(check1, check2);
+            !testRegex1 ? toaster('Full name should begin with an uppercase letter and not less than 2 characters', 'right', 'top', 2000, 'red', 'white') : console.info('Passed!');
+            // const check2 = !testRegex2?console.info('Username should not be less than 2 characters'):console.log('Passed 2!')
             // let userObj: User = {
             //     fullname: fullname.value || null,
             //     username: username.value || null,
