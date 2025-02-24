@@ -106,17 +106,20 @@ if (btn) {
             console.log(testRegex1, testRegex2);
             
 
-            !testRegex1?toaster('Full name should begin with an uppercase letter and not less than 2 characters','right','top',2000,'red','white'):console.info('Passed!')
-            // const check2 = !testRegex2?console.info('Username should not be less than 2 characters'):console.log('Passed 2!')
-            
+            !testRegex1?toaster('Full name should begin with an uppercase letter and not less than 2 characters','right','top',2000,'#000','#ff0'):console.info('Passed!')
 
-            // let userObj: User = {
-            //     fullname: fullname.value || null,
-            //     username: username.value || null,
-            //     mail: mail.value || null,
-            //     password: password.value || null
-            // }
-            // console.log(userObj);
+            !testRegex2?toaster('Username should not be less than 2 characters','right','top',2000,'#000','#0f0'):console.info('Passed!')
+
+            if (testRegex1 && testRegex2) {
+                let userObj: User = {
+                    fullname: fullname.value || null,
+                    username: username.value || null,
+                    mail: mail.value || null,
+                    password: password.value || null
+                }
+                console.log(userObj);
+            }
+
         }
     });
 }
