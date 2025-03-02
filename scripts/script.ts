@@ -112,12 +112,14 @@ if (btn) {
 
             if (testRegex1 && testRegex2) {
                 let userObj: User = {
-                    fullname: fullname.value || null,
-                    username: username.value || null,
-                    mail: mail.value || null,
-                    password: password.value || null
+                    fullname: fullname?.value || null,
+                    username: username?.value || null,
+                    mail: mail?.value || null,
+                    password: password?.value || null
                 }
                 console.log(userObj);
+                const { fullname: userFullname } = userObj;
+                toaster(`Welcome ${userFullname}`, 'right', 'top', 2000, '#000', '#0f0')
             }
 
         }

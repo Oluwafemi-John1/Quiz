@@ -88,12 +88,14 @@ if (btn) {
             !testRegex2 ? toaster('Username should not be less than 2 characters', 'right', 'top', 2000, '#000', '#0f0') : console.info('Passed!');
             if (testRegex1 && testRegex2) {
                 var userObj = {
-                    fullname: fullname.value || null,
-                    username: username.value || null,
-                    mail: mail.value || null,
-                    password: password.value || null
+                    fullname: (fullname === null || fullname === void 0 ? void 0 : fullname.value) || null,
+                    username: (username === null || username === void 0 ? void 0 : username.value) || null,
+                    mail: (mail === null || mail === void 0 ? void 0 : mail.value) || null,
+                    password: (password === null || password === void 0 ? void 0 : password.value) || null
                 };
                 console.log(userObj);
+                var userFullname = userObj.fullname;
+                toaster("Welcome ".concat(userFullname), 'right', 'top', 2000, '#000', '#0f0');
             }
         }
     });
